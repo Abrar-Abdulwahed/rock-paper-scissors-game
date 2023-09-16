@@ -8,7 +8,7 @@
         "plugin:react/recommended"
     ],
     "parserOptions": {
-        "extraFileExtensions": [".css", ".svg"],
+        "extraFileExtensions": [".css"],
         "ecmaVersion": "latest",
         "sourceType": "module"
     },
@@ -16,5 +16,6 @@
         "react"
     ],
     "rules": {
+        "@typescript-eslint/explicit-function-return-type": "off"
     }
 }
