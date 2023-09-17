@@ -1,5 +1,6 @@
 @import "./sass/_variables.sass"
 @import "./sass/_globals.sass"
+@import "./sass/_mixins.sass"
 
 .header
     display: flex
@@ -23,3 +24,27 @@
         justify-content: center
         align-items: center
         border-radius: inherit
+.round
+    display: flex
+    flex-direction: column
+    justify-content: center
+    align-items: center
+    margin-top: 4.375rem
+    margin-inline: auto
+    .choice
+        display: flex
+        justify-content: center
+        align-items: center
+        height: 140px
+        width: 140px
+        border: 18px solid
+        border-radius: 50%
+        &.rock
+            transform: translateY(-15rem)
+            @include choice($rock-gradient)
+        &.paper
+            transform: translate(-8rem, -20rem)
+            @include choice($paper-gradient)
+        &.scissors
+            transform: translate(8rem, -37rem)
+            @include choice($scissors-gradient)

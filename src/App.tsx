@@ -15,12 +15,11 @@ function App () {
   })
   return (
     <div className="container">
-      {gameState.choice
-        ? null
+      <Header />
+      {!gameState.choice
+        ? <Round />
         : (
           <>
-            <Round />
-            <Header />
             <Playground />
             <Button name='result'/>
           </>
