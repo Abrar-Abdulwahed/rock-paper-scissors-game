@@ -1,5 +1,7 @@
 import React from 'react'
+import { useGameContext } from '../context/GameContext'
 function Header () {
+  const { score } = useGameContext()
   return (
     <header className="header">
         <div className="game-name">
@@ -9,7 +11,7 @@ function Header () {
         </div>
         <div className="score">
             <small>score</small>
-            <h1>13</h1>
+            <span>{score}</span>
         </div>
     </header>
   )

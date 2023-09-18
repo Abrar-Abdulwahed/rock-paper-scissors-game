@@ -1,17 +1,17 @@
 import React from 'react'
-import paper from '../images/icon-paper.svg'
-import rock from '../images/icon-rock.svg'
-import scissors from '../images/icon-scissors.svg'
+import choiceAssets from '../choiceAssets'
 import imageTriangle from '../images/bg-triangle.svg'
 import Choice from './Choice'
+import { useGameContext } from '../context/GameContext'
 
 function Round () {
+  const { setChoice } = useGameContext()
   return (
     <section className="round">
         <img src={imageTriangle} className="triangle" />
-        <Choice name="paper" imageURL={paper} />
-        <Choice name="rock" imageURL={rock} />
-        <Choice name="scissors" imageURL={scissors} />
+        <Choice name="paper" imageURL={choiceAssets.paper} handleClick={() => { setChoice('paper') }} />
+        <Choice name="rock" imageURL={choiceAssets.rock} handleClick={() => { setChoice('rock') }} />
+        <Choice name="scissors" imageURL={choiceAssets.scissors} handleClick={() => { setChoice('scissors') }} />
     </section>
   )
 }

@@ -4,18 +4,24 @@
 
 .header
     display: flex
-    width: 60vw
+    width: 50vw
     margin-inline: auto
     justify-content: space-between
-    border: 2px solid $header-outline
-    padding: 13px
+    align-items: center
+    border: 3px solid $header-outline
+    padding: 13px 20px
     border-radius: $radius
+    margin-top: 2rem
+    margin-bottom: 4rem
 
     .game-name
+        font-size: 1.6rem
+        line-height: .8
+        font-weight: 700
         text-align: start
     .score
         background-color: #fff
-        width: 80px
+        width: 100px
         height: auto
         color: $dark-text
         padding: 7px
@@ -23,7 +29,12 @@
         flex-direction: column
         justify-content: center
         align-items: center
-        border-radius: inherit
+        border-radius: $radius/3
+        span
+            font-size: 3rem
+            line-height: 1
+            font-weight: 700
+            color: $dark-text
 .round
     display: flex
     flex-direction: column
@@ -31,17 +42,44 @@
     align-items: center
     margin-top: 4.375rem
     margin-inline: auto
+    .triangle
+        position: absolute
+        width: 17rem
     .choice
         display: flex
         justify-content: center
         align-items: center
-        height: 140px
-        width: 140px
-        border: 18px solid
+        height: 9.5rem
+        width: 9.5rem
+        border: 16px solid
         border-radius: 50%
         &.rock
-            @include choice($rock-gradient, translateY(-15rem))
+            @include choice($rock-gradient, translateY(4rem))
         &.paper
-            @include choice($paper-gradient, translate(-8rem, -20rem))
+            @include choice($paper-gradient,  translate(-7rem, 2rem))
         &.scissors
-            @include choice($scissors-gradient, translate(8rem, -37rem))
+            @include choice($scissors-gradient, translate(7rem, -17rem))
+
+.playground
+    display: flex
+    justify-content: space-between
+    width: 80vw
+    margin-inline: auto
+    .player-name
+        margin-bottom: 2.5rem
+    .choice
+        display: flex
+        justify-content: center
+        align-items: center
+        height: 13rem
+        width: 13rem
+        border: 24px solid
+        border-radius: 50%
+        img
+            width: 75px
+        &.rock
+            @include player($rock-gradient)
+        &.paper
+            @include player($paper-gradient)
+        &.scissors
+            @include player($scissors-gradient)

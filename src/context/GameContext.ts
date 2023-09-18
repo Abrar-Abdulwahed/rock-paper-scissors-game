@@ -1,14 +1,10 @@
 import { createContext, useContext } from 'react'
 
-export enum ChoiceEnum {
-  Paper = 'paper',
-  Rock = 'rock',
-  Scissors = 'scissors',
-}
+export type ChoiceType = 'paper' | 'rock' | 'scissors'
 
 export interface GameContextType {
-  choice?: ChoiceEnum | null
-  setChoice?: (choice: ChoiceEnum | null) => void
+  choice: ChoiceType | null
+  setChoice: (choice: ChoiceType | null) => void
   score?: number
   setScore?: (score: number) => void
 }

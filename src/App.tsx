@@ -4,10 +4,10 @@ import Playground from './components/Playground'
 import Button from './components/Button'
 import Round from './components/Round'
 import { GameContext } from './context/GameContext'
-import type { GameContextType, ChoiceEnum } from './context/GameContext'
+import type { GameContextType, ChoiceType } from './context/GameContext'
 
 const App = () => {
-  const [choice, setChoice] = useState<ChoiceEnum | null>(null)
+  const [choice, setChoice] = useState<ChoiceType | null>(null)
   const [score, setScore] = useState<number>(0)
 
   const contextValue: GameContextType = {
