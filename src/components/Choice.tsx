@@ -2,13 +2,13 @@ import React from 'react'
 
 interface ChoiceProps {
   name: string | null
-  imageURL: string
+  imageURL: string | null
   handleClick?: () => void
 }
 function Choice ({ name, imageURL, handleClick }: ChoiceProps) {
   return (
     <button className={`choice ${name}`} onClick={() => { handleClick && handleClick() }}>
-        <img src={imageURL} alt={`${name} choice`} />
+        {imageURL && <img src={imageURL} alt={`${name} choice`} />}
     </button>
   )
 }
