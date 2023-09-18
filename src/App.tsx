@@ -3,29 +3,36 @@ import Header from './components/Header'
 import Playground from './components/Playground'
 import Button from './components/Button'
 import Round from './components/Round'
+import { GameContext } from './context/GameContext'
+import type { GameContextType, ChoiceEnum } from './context/GameContext'
 
-interface gameState {
-  choice: 'rock' | 'paper' | 'scissors' | null
-  score: number
-}
-function App () {
-  const [gameState] = useState<gameState>({
-    choice: null,
-    score: 0
-  })
+const App = () => {
+  const [choice, setChoice] = useState<ChoiceEnum | null>(null)
+  const [score, setScore] = useState<number>(0)
+
+  const contextValue: GameContextType = {
+    choice,
+    setChoice,
+    score,
+    setScore
+  }
+
   return (
-    <div className="container">
-      <Header />
-      {!gameState.choice
-        ? <Round />
-        : (
-          <>
-            <Playground />
-            <Button name='result'/>
-          </>
-          )
-      }
-    </div>
+    <GameContext.Provider value={contextValue}>
+        <div className="container">
+          <Header />
+          {!choice
+            ? <Round />
+            : (
+              <>
+                <Playground />
+                <Button name='result'/>
+              </>
+              )
+          }
+        </div>
+    </GameContext.Provider>
   )
 }
+
 export default App
