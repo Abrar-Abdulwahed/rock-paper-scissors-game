@@ -40,11 +40,8 @@
         border: 18px solid
         border-radius: 50%
         &.rock
-            transform: translateY(-15rem)
-            @include choice($rock-gradient)
+            @include choice($rock-gradient, translateY(-15rem))
         &.paper
-            transform: translate(-8rem, -20rem)
-            @include choice($paper-gradient)
+            @include choice($paper-gradient, translate(-8rem, -20rem))
         &.scissors
-            transform: translate(8rem, -37rem)
-            @include choice($scissors-gradient)
+            @include choice($scissors-gradient, translate(8rem, -37rem))
