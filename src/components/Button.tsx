@@ -2,10 +2,11 @@ import React from 'react'
 
 interface ButtonProps {
   name: string
+  handleClick?: () => void
 }
-function Button ({ name }: ButtonProps) {
+function Button ({ name, handleClick }: ButtonProps) {
   return (
-    <button>
+    <button className="btn" onClick={() => { handleClick && handleClick() }}>
         {name}
     </button>
   )

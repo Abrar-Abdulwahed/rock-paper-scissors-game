@@ -5,8 +5,8 @@ export type ChoiceType = 'paper' | 'rock' | 'scissors'
 export interface GameContextType {
   choice: ChoiceType | null
   setChoice: (choice: ChoiceType | null) => void
-  score?: number
-  setScore?: (score: number) => void
+  score: number
+  setScore: (score: number) => void
 }
 
 export const GameContext = createContext<GameContextType>({
