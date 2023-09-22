@@ -16,21 +16,27 @@ body
 .h1
     font-size: 3rem
     letter-spacing: 1px
+    margin-bottom: 1rem
+.bg-white
+    background-color: #fff
+.bg-transparent
+    background: transparent
 .btn
     border: none
     border-radius: $radius/2
     text-transform: inherit
     letter-spacing: 2px
     padding: .7rem 3rem
-    margin-top: 1rem
+    background-color: transparent
     &:hover
         color: red
         cursor: pointer
+.btn-filled
+    background-color: #fff
 .btn-outline
     color: #fff
     border: 2px solid #fff
-    background-color: transparent
-
-// .container
-//     display: grid
-//     grid-template-rows: 2
+.container
+    display: flex
+    flex-direction: column
+    max-height: 80vh

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import choiceAssets from '../choiceAssets'
-import type { ChoiceType } from '../context/GameContext'
-import { useGameContext } from '../context/GameContext'
+import type { ChoiceType } from '../hooks/GameContext'
+import { useGameContext } from '../hooks/GameContext'
 import Choice from './Choice'
 import Button from './Button'
 
@@ -57,7 +57,7 @@ function Playground () {
       {result &&
         <div>
           <p className="h1">{result}</p>
-          <Button name='play again' handleClick={() => { setChoice(null); setHouse(null) }} />
+          <Button name='play again' classes='btn-filled' handleClick={() => { setChoice(null); setHouse(null) }} />
         </div>
       }
       <div className="player">

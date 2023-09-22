@@ -1,5 +1,5 @@
 import React from 'react'
-import { useGameContext } from '../context/GameContext'
+import { useGameContext } from '../hooks/GameContext'
 function Header () {
   const { score } = useGameContext()
   return (

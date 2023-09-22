@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
 import Header from './components/Header'
 import Playground from './components/Playground'
-import Button from './components/Button'
 import Round from './components/Round'
-import { GameContext } from './context/GameContext'
-import type { GameContextType, ChoiceType } from './context/GameContext'
+import { GameContext } from './hooks/GameContext'
+import type { GameContextType, ChoiceType } from './hooks/GameContext'
+import Footer from './components/Footer'
 
 const App = () => {
   const [choice, setChoice] = useState<ChoiceType | null>(null)
@@ -23,13 +23,9 @@ const App = () => {
           <Header />
           {!choice
             ? <Round />
-            : (
-              <>
-                <Playground />
-                <Button name='result'/>
-              </>
-              )
+            : <Playground />
           }
+          <Footer />
         </div>
     </GameContext.Provider>
   )
