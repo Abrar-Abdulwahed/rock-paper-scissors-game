@@ -1,20 +1,27 @@
 import React from 'react'
 import Button from './Button'
 
-const Modal = () => {
+interface ModalProps {
+  onClose: () => void
+}
+
+const Modal = ({ onClose }: ModalProps) => {
   return (
-    <>
-        <div className="modal-overlay">
-          <div className="modal-content">
-            <div className="modal-header">
-                <h2>Rules</h2>
-                <Button name="x" handleClick={toggleValue} />
-            </div>
-            <h2>Modal Content</h2>
-            <p>This is the content of the modal.</p>
+      <div className="modal-overlay show" tabIndex={-1} role="dialog">
+        <div className="modal-content">
+          <div className="modal-header">
+            <h2>Modal Title</h2>
+            <Button name="x" handleClick={() => { onClose() }} />
+          </div>
+          <div className="modal-body">
+            <p>Modal body content goes here...</p>
+          </div>
+          <div className="modal-footer">
+            <button className="btn btn-secondary">Close</button>
+            <button className="btn btn-primary">Save changes</button>
           </div>
         </div>
-    </>
+      </div>
   )
 }
 

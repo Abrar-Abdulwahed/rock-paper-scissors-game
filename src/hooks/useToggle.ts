@@ -1,17 +1,17 @@
 import { useState } from 'react'
 
 type ToggleValue = boolean
-type ToggleFunction = (value?: ToggleValue) => void
+type ToggleFunction = (isOpen?: ToggleValue) => void
 type ToggleHook = [ToggleValue, ToggleFunction]
 
 function useToggle (defaultValue: ToggleValue): ToggleHook {
-  const [value, setValue] = useState<ToggleValue>(defaultValue)
+  const [isOpen, setIsOpen] = useState<ToggleValue>(defaultValue)
 
-  function toggleValue (value?: ToggleValue): void {
-    setValue(currentValue => typeof value === 'boolean' ? value : !currentValue)
+  function toggleValue (isOpen?: ToggleValue): void {
+    setIsOpen(currentValue => typeof isOpen === 'boolean' ? isOpen : !currentValue)
   }
 
-  return [value, toggleValue]
+  return [isOpen, toggleValue]
 }
 
 export default useToggle
