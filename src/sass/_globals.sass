@@ -12,6 +12,7 @@ body
     text-transform: uppercase
     background-image: $background-gradient
     width: 80vw
+    max-height: 100vh
     margin-inline: auto
 .h1
     font-size: 3rem
@@ -37,6 +38,10 @@ body
     color: #fff
     border: 2px solid #fff
 .container
-    display: flex
-    flex-direction: column
-    max-height: 80vh
+    display: grid
+    grid-template-rows: 1fr 1fr 1fr
+    height: 100vh
+.p-0
+    padding: 0
+.mt-auto
+    margin-top: auto

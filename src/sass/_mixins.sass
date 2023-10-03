@@ -2,14 +2,17 @@
     z-index: 1
     border-color: $color
     transform: $transform
-    box-shadow: inset 0 5px 4px gray, 0 7px darken($color, 19%)
+    box-shadow: inset 0 5px 4px gray, 0 5px darken($color, 19%)
+    @media (min-width: 960px)
+    // Override box-shadow values for min-width: 960px
+        box-shadow: inset 0 5px 4px gray, 0 7px darken($color, 19%)
     &:hover
         cursor: pointer
         transform: #{$transform} scale(1.1)
 
 @mixin player($color)
     border-color: $color
-    box-shadow: inset 0 5px 4px gray, 0 7px darken($color, 19%)
+    box-shadow: inset 0 5px 4px gray, 0 5px darken($color, 19%)
     &:hover
         cursor: pointer
         transform: scale(1.1)

@@ -6,10 +6,12 @@ import Modal from './Modal'
 function Footer () {
   const [isOpen, toggleValue] = useToggle(false)
   return (
-    <footer className='footer'>
-        <Button name="Rules" classes='btn-outline' handleClick={toggleValue} />
-        {isOpen && <Modal onClose={toggleValue} />}
-    </footer>
+    <>
+      <footer className='footer'>
+          <Button name="Rules" classes='btn-outline' handleClick={toggleValue} />
+      </footer>
+      {isOpen && <Modal onClose={toggleValue} />}
+    </>
   )
 }
 

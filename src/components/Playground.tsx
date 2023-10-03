@@ -1,15 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import choiceAssets from '../choiceAssets'
+import { WIN, LOSE, houseChoice, determineWinner } from '../gameLogic'
 import type { ChoiceType } from '../hooks/GameContext'
 import { useGameContext } from '../hooks/GameContext'
 import Choice from './Choice'
 import Button from './Button'
-
-function houseChoice (): ChoiceType {
-  const choices: ChoiceType[] = ['rock', 'paper', 'scissors']
-  const randomIndex = Math.floor(Math.random() * choices.length)
-  return choices[randomIndex]
-}
 
 function Playground () {
   const { choice, setChoice, score, setScore } = useGameContext()
@@ -29,40 +24,35 @@ function Playground () {
 
   useEffect(() => {
     if (choice && house) {
-      determineWinner()
+      const winner = determineWinner(choice, house)
+      setResult(winner)
+
+      if (winner === WIN) {
+        setScore(score + 1)
+      } else if (winner === LOSE) {
+        setScore(score - 1)
+      }
     }
   }, [choice, house])
 
   const choiceURL = choiceAssets[choice as keyof typeof choiceAssets]
   const houseURL = house ? choiceAssets[house] : null // Use an empty string for the placeholder image
-  const determineWinner = () => {
-    if (choice === house) {
-      setResult('It\'s a draw')
-    } else if ((choice === 'rock' && house === 'scissors') ||
-               (choice === 'scissors' && house === 'paper') ||
-               (choice === 'paper' && house === 'rock')) {
-      setScore(score + 1)
-      setResult('You win')
-    } else {
-      setScore(score - 1)
-      setResult('You lose')
-    }
-  }
+
   return (
     <section className="playground">
       <div className="player">
         <p className="player-name">you picked</p>
-        <Choice name={choice} imageURL={choiceURL} />
+        <Choice name={choice} imageURL={choiceURL} animate={result === WIN} />
       </div>
       {result &&
-        <div>
-          <p className="h1">{result}</p>
-          <Button name='play again' classes='btn-filled' handleClick={() => { setChoice(null); setHouse(null) }} />
+        <div className="result">
+            <p className="h1">{result}</p>
+            <Button name='play again' classes='btn-filled' handleClick={() => { setChoice(null); setHouse(null) }} />
         </div>
-      }
+       }
       <div className="player">
         <p className="player-name">the house picked</p>
-        <Choice name={house} imageURL={houseURL} />
+        <Choice name={house} imageURL={houseURL} animate={result === LOSE} />
       </div>
     </section>
   )
