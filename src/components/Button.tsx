@@ -1,5 +1,4 @@
 import React from 'react'
-// import type { ReactNode } from 'react'
 
 interface ButtonProps {
   name: string | JSX.Element // Update the type of 'name' prop

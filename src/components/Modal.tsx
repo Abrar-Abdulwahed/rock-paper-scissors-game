@@ -16,7 +16,7 @@ const Modal = ({ onClose }: ModalProps) => {
             <Button name={<img src={CloseButton} alt="Button Icon" width="15" />} handleClick={() => { onClose() }} classes="p-0" />
           </div>
           <div className="modal-body">
-            <img src={Rules} width="220" />
+            <img src={Rules} width="220" loading='lazy' alt="Rules Explanation" />
           </div>
         </div>
       </div>

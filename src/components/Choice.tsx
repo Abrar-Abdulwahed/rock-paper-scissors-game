@@ -9,7 +9,7 @@ interface ChoiceProps {
 function Choice ({ name, imageURL, handleClick, animate }: ChoiceProps) {
   return (
     <button className={`choice ${name}  ${animate && 'winner'} }`} onClick={() => { handleClick && handleClick() }}>
-        {imageURL && <img src={imageURL} alt={`${name} choice`} />}
+        {imageURL && <img src={imageURL} alt={`${name} choice`} loading='lazy' />}
     </button>
   )
 }

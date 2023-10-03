@@ -9,13 +9,12 @@ import Button from './Button'
 function Playground () {
   const { choice, setChoice, score, setScore } = useGameContext()
 
-  // Determine the URL based on the user choice/house value
-  const [house, setHouse] = useState<ChoiceType | null>(null) // Initial value is null for placeholder image
+  const [house, setHouse] = useState<ChoiceType | null>(null)
   const [result, setResult] = useState<string>('')
   useEffect(() => {
     const timeoutId = setTimeout(() => {
       setHouse(houseChoice())
-    }, 2000) // Set the desired timeout duration in milliseconds
+    }, 2000)
 
     return () => {
       clearTimeout(timeoutId)
