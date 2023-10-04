@@ -9,11 +9,11 @@ interface ModalProps {
 
 const Modal = ({ onClose }: ModalProps) => {
   return (
-      <div className="modal-overlay show" tabIndex={-1} role="dialog">
+      <div className="modal-overlay show" tabIndex={-1} role="dialog" aria-modal="true">
         <div className="modal-content">
           <div className="modal-header">
             <h2>Rules</h2>
-            <Button name={<img src={CloseButton} alt="Button Icon" width="15" />} handleClick={() => { onClose() }} classes="p-0" />
+            <Button name={<img src={CloseButton} alt="Button Icon" width="15" />} handleClick={() => { onClose() }} classes="p-0" ariaLabel="Close" />
           </div>
           <div className="modal-body">
             <img src={Rules} width="220" loading='lazy' alt="Rules Explanation" />

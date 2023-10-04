@@ -44,7 +44,7 @@ function Playground () {
         <Choice name={choice} imageURL={choiceURL} animate={result === WIN} />
       </div>
       {result &&
-        <div className="result">
+        <div className="result" aria-live="polite">
             <p className="h1">{result}</p>
             <Button name='play again' classes='btn-filled' handleClick={() => { setChoice(null); setHouse(null) }} />
         </div>
