@@ -9,6 +9,18 @@ export function houseChoice (): ChoiceType {
   return choices[randomIndex]
 }
 
+export function houseCheese1 (): ChoiceType {
+  const choices: ChoiceType[] = ['rock', 'paper', 'scissors']
+  const randomIndex = Math.floor(Math.random() * choices.length)
+  return choices[randomIndex]
+}
+
+export function houseCheese2 (): ChoiceType {
+  const choices: ChoiceType[] = ['rock', 'paper', 'scissors']
+  const randomIndex = Math.floor(Math.random() * choices.length)
+  return choices[randomIndex]
+}
+
 export const determineWinner = (choice: ChoiceType, house: ChoiceType) => {
   if (choice === house) {
     return DRAW
